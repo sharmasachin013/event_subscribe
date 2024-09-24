@@ -1,0 +1,21 @@
+services:
+  mymodule.event_subscriber:
+    class: Drupal\mymodule\EventSubscriber\NodeEventSubscriber
+    tags:
+      - { name: event_subscriber }
+
+  mymodule.config:
+    class: Drupal\mymodule\EventSubscriber\ConfigEventsSubscriber
+    tags:
+      - { name: "event_subscriber" }
+
+  # mymodule.form_alter_subscriber:
+  #   class: Drupal\mymodule\EventSubscriber\FormAlterSubscriber
+  #   arguments: ["@entity_type.manager"]
+  #   tags:
+  #     - { name: event_subscriber }
+
+  mymodule.example_form_subscribers:
+    class: Drupal\mymodule\EventSubscriber\FormAlterSubscriber
+    tags:
+      - { name: event_subscriber }
